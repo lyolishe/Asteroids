@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from '../../components/Sign/style.css';
 import { SignButtonsProps } from '../../components/Sign/SignButtons/SignButtons';
 import Sign from '../../components/Sign';
+import handleInputChange from '../../utils/handleInputChange';
 
 interface State {
   fields: {
@@ -16,6 +17,8 @@ interface State {
 type Props = Record<string, unknown>
 
 export default class Login extends Component<Props, State> {
+  private handleInputChange: OmitThisParameter<(event: any) => void>;
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -45,18 +48,7 @@ export default class Login extends Component<Props, State> {
         },
       ],
     };
-  }
-
-  private handleInputChange = (event: any): void => {
-    const { fields } = this.state;
-    const { target } = event;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const { name } = target;
-
-    const toggle = fields.map((input) => (input.name === name ? { ...input, value } : input));
-    this.setState({
-      fields: toggle,
-    });
+    this.handleInputChange = handleInputChange.bind(this);
   }
 
   private handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
