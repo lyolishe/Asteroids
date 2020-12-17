@@ -53,7 +53,15 @@ module.exports =
                     test: /\.css$/,
                     use: [
                         {loader: MiniCssExtractPlugin.loader},
-                        {loader: 'css-loader', options: {modules: 'global'}},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: {
+                                    localIdentName: '[local]_[hash:base64]',
+                                    exportLocalsConvention: 'camelCase',
+                                },
+                            },
+                        },
                     ],
                 },
                 {

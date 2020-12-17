@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import Input from './components/Input';
+import Button from './components/Button';
+import Sign from './components/Sign';
 
-const App: React.FC = () => {
-    return (
-        <div>
-            Hello from Assteroids
-        </div>
-    )
+export default class App extends PureComponent {
+    public render() {
+        return (
+            <div>
+                <Sign typeBackground="login" title="Login" />
+          </div>
+        );
+    }
+
+    private handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { target } = event;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const { name } = target;
+
+        this.setState({
+            [name]: value,
+        });
+    }
+
+    private handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        console.log(this.state);
+    }
 }
-
-export default App;
