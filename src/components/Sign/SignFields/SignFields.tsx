@@ -13,28 +13,27 @@ type Props = {
 };
 
 export default class SignFields extends Component<Props> {
-    public render() {
-        return (
-            this.getFieldList()
-        );
+    private getFieldList = () => {
+      const { inputOnChange, fields } = this.props;
+      return fields.map((field) => (
+        <div key={field.name} className={style.inputBlock}>
+          <label className={style.formLabel}>
+            {field.label}
+            <Input
+              type={field.type}
+              className={field.className}
+              name={field.name}
+              onChange={inputOnChange}
+              value={field.value}
+            />
+          </label>
+        </div>
+      ));
     }
 
-    private getFieldList = () => {
-        const { inputOnChange, fields } = this.props;
-        return fields.map((field, index) => {
-            return (
-                <div key={index} className={style.inputBlock}>
-                    <label className={style.formLabel}>{field.label}
-                        <Input
-                            type={field.type}
-                            className={field.className}
-                            name={field.name}
-                            onChange={inputOnChange}
-                            value={field.value}
-                        />
-                    </label>
-                </div>
-            )
-        });
+    public render(): JSX.Element[] {
+      return (
+        this.getFieldList()
+      );
     }
 }

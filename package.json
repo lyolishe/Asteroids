@@ -41,6 +41,6 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --mode=production",
-    "lint": "eslint"
+    "lint": "node_modules/.bin/eslint . --fix"
   }
 }

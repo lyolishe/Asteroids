@@ -15,32 +15,57 @@ interface State {
 
 type Props = Record<string, unknown>
 
-export default class Login extends Component<Props, State> {
+export default class SignIn extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       fields: [
         {
+          label: 'Имя',
+          name: 'first_name',
+          className: style.signFormInput,
+          type: 'text',
+        },
+        {
+          label: 'Фамилия',
+          name: 'second_name',
+          className: style.signFormInput,
+          type: 'text',
+        },
+        {
           label: 'Логин',
           name: 'login',
           className: style.signFormInput,
+          type: 'text',
+        },
+        {
+          label: 'Почта',
+          name: 'email',
+          className: style.signFormInput,
+          type: 'text',
+        },
+        {
+          label: 'Телефон',
+          name: 'phone',
+          className: style.signFormInput,
+          type: 'text',
         },
         {
           label: 'Пароль',
           name: 'password',
           className: style.signFormInput,
           type: 'password',
-        },
+        }
       ],
       buttons: [
         {
           className: style.signFormButtonBlockFormSubmit,
-          text: 'Авторизоваться',
+          text: 'Регистрация',
           action: this.handleClick,
         },
         {
           className: style.signFormButtonBlockFormCancel,
-          text: 'Нет аккаунта?',
+          text: 'Войти',
           action: this.handleClick,
         },
       ],
@@ -68,8 +93,8 @@ export default class Login extends Component<Props, State> {
     const { buttons, fields } = this.state;
     return (
       <Sign
-        typeBackground="login"
-        title="Авторизация"
+        typeBackground="signIn"
+        title="Регистрация"
         buttons={buttons}
         fields={fields}
         handleInputChange={this.handleInputChange}

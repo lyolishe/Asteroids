@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
-import Login from "./views/Login";
+import SignIn from "./views/SignIn";
 
 export default class App extends PureComponent {
-    public render() {
-        return (
-            <Login />
-        );
-    }
+  public render(): JSX.Element {
+    return (
+      <SignIn />
+    );
+  }
 }
