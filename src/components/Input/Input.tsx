@@ -5,10 +5,10 @@ export type InputProps = OwnProps;
 
 export default class Input extends Component<InputProps> {
     public render() {
-        const { onChange, value, name } = this.props;
+        const { onChange, value, name, className, type } = this.props;
 
         return (
-            <input name={name} onChange={onChange} value={value} />
+            <input type={type} className={className} name={name} onChange={onChange} value={value} />
         );
     }
 }

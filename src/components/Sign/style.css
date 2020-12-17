@@ -21,7 +21,8 @@
     border-radius: 12px;
 }
 
-.sign-form_title {
+.form-title {
+    padding-top: 20px;
     text-align: center;
     margin-top: 70px;
     margin-bottom: 40px;
@@ -33,15 +34,6 @@
     /* identical to box height, or 100% */
 
     color: #1e1e1e;
-}
-
-.sign-form_input-block_label {
-    margin: 0 30px 16px;
-    color: #999;
-}
-
-.sign-form_label {
-    font-size: 9px;
 }
 
 .sign-form_input {
