@@ -18,6 +18,9 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "baseUrl": "./",
+    "typeRoots": [
+        "./@types"
+    ],
     "paths": {
       "@components/*": [
         "./src/components/*"
