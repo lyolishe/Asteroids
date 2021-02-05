@@ -1,12 +1,12 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ServiceWorkerPlugin = require('serviceworker-webpack-plugin');
-const path = require('path');
+import path from 'path';
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import ServiceWorkerPlugin from 'serviceworker-webpack-plugin';
 
-const mode = process.env.NODE_ENV || 'development';
-const isDev = mode === 'development';
+import { isDev, mode } from './env';
 
-module.exports = {
+const config: Configuration = {
   entry: ['./src/index.tsx'],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.css', '.less'],
@@ -22,11 +22,6 @@ module.exports = {
   },
   mode,
   devtool: isDev ? 'inline-source-map' : false,
-  devServer: {
-    disableHostCheck: true,
-    historyApiFallback: true,
-    port: 3000,
-  },
   module: {
     rules: [
       {
@@ -64,6 +59,11 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: { loader: 'babel-loader' },
+      },
     ],
   },
   plugins: [
@@ -79,3 +79,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;
