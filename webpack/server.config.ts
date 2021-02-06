@@ -23,12 +23,10 @@ const config: Configuration = {
   },
   output: {
     filename: 'server.js',
-    libraryTarget: 'commonjs2',
     path: DIST_DIR,
-    publicPath: '/static/',
   },
   optimization: { nodeEnv: false },
-  devtool: isDev ? 'inline-source-map' : false,
+  devtool: 0 && isDev ? 'inline-source-map' : false,
   module: {
     rules: [
       {
@@ -45,9 +43,12 @@ const config: Configuration = {
       },
       {
         test: /\.ts(x?)$/,
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /build/,
+        ],
         use: { loader: 'babel-loader' },
-      },
+      }
     ],
   },
 };
