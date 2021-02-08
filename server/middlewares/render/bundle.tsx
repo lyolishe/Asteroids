@@ -4,6 +4,10 @@ import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import {StaticRouterContext} from 'react-router';
 import {StaticRouter} from 'react-router-dom';
 
+function getBundle(bundleName: string) {
+  return require('../../../ssr.bundles').bundles[bundleName]; // eslint-disable-line global-require
+}
+
 interface PageHtmlParams {
     bundleHtml: string;
     helmet: HelmetData;
@@ -30,16 +34,18 @@ function getPageHtml({ bundleHtml, helmet }: PageHtmlParams) {
 }
 
 interface RenderBundleArguments {
-    location: string; // Берётся, например, из req.url
+    bundleName: string;
+    location: string;
 }
 
-export default ({ location }: RenderBundleArguments) => {
+export default ({ bundleName, location }: RenderBundleArguments) => {
   const context: StaticRouterContext = {};
+  const Bundle = getBundle(bundleName);
 
   const bundleHtml = renderToString(
     (
       <StaticRouter context={context} location={location}>
-        <BundleComponent data={data} state={store} />
+        <Bundle />
       </StaticRouter>
     ),
   );
