@@ -1,3 +1,4 @@
+import path from 'path';
 import { join } from 'path';
 import { Configuration } from 'webpack';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
@@ -5,22 +6,32 @@ import webpackNodeExternals from 'webpack-node-externals';
 
 const fileRegex = /^(?!.*\.inline).*\.(svg|jpe?g|png|gif|eot|woff2?|ttf)$/;
 
+console.log(join('../../', 'src', 'index.tsx'));
+
+const ROOT_DIR: string = path.join(__dirname, '../../');
+
 const config: Configuration = {
   name: 'ssr_bundles',
   target: 'node',
   devtool: 'source-map',
-  entry: join('../../', 'client', 'bundles', 'index.ts'),
+  entry: join(ROOT_DIR, 'src', 'index.tsx'),
   node: { __dirname: false },
   mode: 'development',
 
-  externals: [webpackNodeExternals({
-            allowlist: [
-                /\.(?!(?:jsx?|json)$).{1,5}$/i,
-            ],
-        })],
-
+  externals: [
+    webpackNodeExternals({
+      allowlist: [
+        /\.(?!(?:jsx?|json)$).{1,5}$/i,
+      ],
+    }),
+  ],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.json'],
+    alias: {
+      '@components': path.resolve(__dirname, './src/components'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@classes': path.resolve(__dirname, './src/classes'),
+    },
+    extensions: ['.js', '.ts', '.tsx', '.json', '.css', '.less'],
     plugins: [
       new TsconfigPathsPlugin(),
     ],
@@ -28,7 +39,7 @@ const config: Configuration = {
   output: {
     filename: 'ssr.bundles.js',
     libraryTarget: 'commonjs2',
-    path: join('../../', 'dist'),
+    path: path.join(__dirname, '../../dist'),
     publicPath: '/static/',
   },
 
@@ -46,8 +57,6 @@ const config: Configuration = {
   performance: {
     hints: false,
   },
-
-
   module: {
     rules: [
       {
@@ -65,7 +74,7 @@ const config: Configuration = {
         loader: 'null-loader',
       },
       {
-        test: /\.less/,
+        test: /\.less$/,
         loader: 'null-loader',
       },
     ],
