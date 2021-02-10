@@ -14,5 +14,5 @@ server
   .use(router);
 
 server.listen(PORT, () => {
-  console.log(`Running on :${PORT}`);
+  console.log(`Running on port:${PORT}`);
 });
