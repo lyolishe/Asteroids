@@ -6,15 +6,13 @@ import webpackNodeExternals from 'webpack-node-externals';
 
 const fileRegex = /^(?!.*\.inline).*\.(svg|jpe?g|png|gif|eot|woff2?|ttf)$/;
 
-console.log(join('../../', 'src', 'index.tsx'));
-
 const ROOT_DIR: string = path.join(__dirname, '../../');
 
 const config: Configuration = {
   name: 'ssr_bundles',
   target: 'node',
   devtool: 'source-map',
-  entry: join(ROOT_DIR, 'src', 'index.tsx'),
+  entry: join(ROOT_DIR, 'src', 'bundles', 'index.ts'),
   node: { __dirname: false },
   mode: 'development',
 
@@ -30,6 +28,7 @@ const config: Configuration = {
       '@components': path.resolve(__dirname, './src/components'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@classes': path.resolve(__dirname, './src/classes'),
+      '@pages': path.resolve(__dirname, './src/pages'),
     },
     extensions: ['.js', '.ts', '.tsx', '.json', '.css', '.less'],
     plugins: [
@@ -59,6 +58,13 @@ const config: Configuration = {
   },
   module: {
     rules: [
+      /*{
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: [
+          /node_modules/,
+        ],
+        loader: 'babel-loader'
+      },*/
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,

@@ -40,6 +40,7 @@ interface RenderBundleArguments {
 
 export default ({ bundleName, location }: RenderBundleArguments) => {
   const context: StaticRouterContext = {};
+
   const Bundle = getBundle(bundleName);
 
   const bundleHtml = renderToString(
