@@ -2,7 +2,7 @@ import CookieToString from '@helpers/CookieToString';
 import { praktikumAxios } from './axios';
 import {
   IServiceId, SignUpRequest, SignUser, UserResponse, SignUpResponse, SignInResponse, CookiesType,
-} from '@types/types';
+} from '../types/types';
 
 class AuthApi {
     static signUp = async (data: SignUpRequest): Promise<SignUpResponse> => {

@@ -32,6 +32,7 @@ const config: Configuration = {
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@classes': path.resolve(__dirname, './src/classes'),
       '@types': path.resolve(__dirname, './src/types'),
+      '@api': path.resolve(__dirname, './src/api'),
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],

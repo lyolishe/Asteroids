@@ -13,10 +13,10 @@ import {
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
-import AuthApi from '../../../api/AuthApi';
-import UserApi from '../../../api/UserApi';
+import AuthApi from '@api/AuthApi';
+import UserApi from '@api/UserApi';
 
-import { ProfileUser } from '@types/types';
+import { ProfileUser } from '../../../types/types';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
