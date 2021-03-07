@@ -1,4 +1,4 @@
-import { IAddUserLeaderboard } from '@types/types';
+import { IAddUserLeaderboard } from '../types/types';
 import { praktikumAxios } from './axios';
 
 import { ColumnType, IRequestData } from '../pages/LeaderboardPage/Table/LeaderboardTable';

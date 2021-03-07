@@ -1,4 +1,4 @@
-import { FeedbackFields, DefaultApiResponse } from '@types/types';
+import { FeedbackFields, DefaultApiResponse } from '../types/types';
 import { apiAxios } from './axios';
 
 class FeedbackApi {

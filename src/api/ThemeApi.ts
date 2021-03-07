@@ -1,5 +1,5 @@
 import { apiAxios } from './axios';
-import { ThemeResponse, DefaultApiResponse } from '@types/types';
+import { ThemeResponse, DefaultApiResponse } from '../types/types';
 
 class ThemeApi {
   static setTheme = async (name: string): Promise<DefaultApiResponse> => {

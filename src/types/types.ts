@@ -153,7 +153,7 @@ export interface LoginFormFields {
   password: string,
 }
 
-type SimpleObject = {
+export type SimpleObject = {
   [key: string]: string;
 };
 

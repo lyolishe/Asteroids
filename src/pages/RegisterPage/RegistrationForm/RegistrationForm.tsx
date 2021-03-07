@@ -3,12 +3,10 @@ import { useHistory } from 'react-router';
 import { Form } from 'react-final-form';
 import { useSnackbar } from 'notistack';
 
-import { RegisterFormFields, SimpleObject } from '@types/types';
-
 import { TextField } from 'mui-rff';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { RegisterFormFields, SimpleObject } from '../../../types/types';
 import AuthApi from '../../../api/AuthApi';
 
 const useStyles = makeStyles((theme) => ({

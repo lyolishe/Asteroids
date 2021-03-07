@@ -1,5 +1,5 @@
+import { ThemeType } from '../../types/types';
 import themeActions from '../actions/theme';
-import { ThemeType } from '@types/types'
 
 interface BaseActionType {
   type: string,
