@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { IAddUserLeaderboard } from '@types/types';
+import { IAddUserLeaderboard } from '../../types/types';
 import { useSnackbar } from 'notistack';
 import authSelector from '../../store/selectors/auth';
 import LeaderboardApi from '../../api/LeaderboardApi';

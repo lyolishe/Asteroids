@@ -11,7 +11,7 @@ import watchTheme from './sagas/theme';
 
 import createRootReducer from './reducers';
 
-import { AppStore, State } from '@types';
+import { AppStore, State } from '../types';
 
 import { IS_DEV } from '../../webpack/env';
 

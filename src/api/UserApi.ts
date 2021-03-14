@@ -1,5 +1,5 @@
 import { praktikumAxios } from './axios';
-import { PasswordRequest, UserRequest, UserResponse } from '@types/types';
+import { PasswordRequest, UserRequest, UserResponse } from '../types/types';
 
 class UserApi {
     static editProfile = async (data: UserRequest): Promise<UserRequest> => {

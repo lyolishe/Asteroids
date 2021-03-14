@@ -15,7 +15,7 @@ import { login } from '../../store/actionCreators/auth';
 import useAuth from '../../hooks/useAuth';
 import authSelector from '../../store/selectors/auth';
 
-import { LoginFormFields, SimpleObject } from '@types/types';
+import { LoginFormFields, SimpleObject } from '../../types/types';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
 
 const LoginForm = (): JSX.Element => {
   const classes = useStyles();

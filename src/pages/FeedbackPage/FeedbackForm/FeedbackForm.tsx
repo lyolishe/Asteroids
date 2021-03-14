@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSnackbar } from 'notistack';
 
-import { FeedbackFields } from '@types/types';
+import { FeedbackFields } from '../../../types/types';
 import FeedbackApi from '../../../api/FeedbackApi';
 
 const useStyles = makeStyles((theme) => ({

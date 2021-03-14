@@ -7,9 +7,10 @@ interface BaseActionType {
 }
 
 export interface LeaderboardState {
-  readonly data: {name: string}[];
+  readonly data: Record<string, unknown> | [];
   readonly loading: boolean;
   readonly error: boolean;
+  readonly errorData?: any;
 }
 
 export const initialState: LeaderboardState = {
